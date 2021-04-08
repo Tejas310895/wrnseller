@@ -38,7 +38,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="images/karwarslogo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/dashlogo.png">
   <link rel="icon" type="image/png" href="images/karwarslogo.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
