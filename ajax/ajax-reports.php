@@ -88,6 +88,9 @@ if(isset($_POST["limit"], $_POST["start"])){
               Diff Amount
             </th>
             <th>
+              Cash Taken
+            </th>
+            <th>
               Action
             </th>
           </thead>
@@ -118,6 +121,12 @@ if(isset($_POST["limit"], $_POST["start"])){
 
                 $bill_amount_client = $row_bill_diff_client['bill_amount'];
 
+                $get_cash_status = "select * from vendor_cash where invoice_no='$invoice_no' and client_id='$client_id'";
+                $run_cash_status = mysqli_query($con,$get_cash_status);
+                $row_cash_status = mysqli_fetch_array($run_cash_status);
+
+                $cash_status = $row_cash_status['vendor_cash_status'];
+
             ?>
             <tr>
               <td>
@@ -134,6 +143,9 @@ if(isset($_POST["limit"], $_POST["start"])){
               </td>
               <td>
                 <?php if($bill_amount_client>0){echo $bill_amount_client;}else{ echo 0;} ?>
+              </td>
+              <td>
+              <?php echo $cash_status; ?>
               </td>
               <td>
                   <button id="show_details" class="btn btn-danger mx-1" data-toggle="modal" data-target="#cK<?php echo $invoice_no; ?>">

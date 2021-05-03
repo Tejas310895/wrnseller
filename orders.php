@@ -86,10 +86,17 @@
                     </h6>
                 </div>
                 <div class="card-body">
-                    <a href="process_order.php?update_order=<?php echo $invoice_id;?>&status=Packed" class="btn btn-success pull-right" onclick="return confirm('Are you sure?')" style="padding: 11px 21px;">
+                    <!-- <a href="process_order.php?update_order=<?php //echo $invoice_id;?>&status=Packed" class="btn btn-success pull-right" onclick="return confirm('Are you sure?')" style="padding: 11px 21px;">
                     <i class="now-ui-icons shopping_basket"></i>
                     Packed
-                    </a>
+                    </a> -->
+                    <button class="btn btn-success dropdown-toggle pull-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Delivered
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="process_order.php?update_order=<?php echo $invoice_id;?>&status=paid">Paid to Me</a>
+                        <a class="dropdown-item" href="process_order.php?update_order=<?php echo $invoice_id;?>&status=unpaid">Paid to WRN</a>
+                    </div>
                     <a href="<?php if($client_id==1){ echo "main_print.php";}else{echo "vendor_print.php";}?>?print=<?php echo $invoice_id; ?>&vendor_id=<?php echo $client_id; ?>" target="_blank" class="btn btn-info pull-right" style="padding: 11px 21px;">
                     <i class="now-ui-icons files_paper"></i>
                     Print

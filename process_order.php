@@ -21,11 +21,17 @@ if(isset($_GET['update_order'])){
 
   $update_order = $_GET['update_order'];
 
-  $status = $_GET['status'];
+  $vendor_status = $_GET['status'];
 
-  $update_status_del = "UPDATE customer_orders SET order_status='$status',del_date='$today' WHERE invoice_no='$update_order' and client_id='$client_id'";
+  $update_status_del = "UPDATE customer_orders SET order_status='Packed',del_date='$today' WHERE invoice_no='$update_order' and client_id='$client_id'";
 
   $run_status_del = mysqli_query($con,$update_status_del);
+
+  if($run_status_del){
+
+    $insert_fund_status = "insert into vendor_cash (invoice_no,vendor_cash_status,client_id,updated_date) values ('$update_order','$vendor_status','$client_id','$today')";
+    $run_insert_fund_status = mysqli_query($con,$insert_fund_status);
+  }
 
 
     echo "<script>alert('Order Packed Successfully')</script>";

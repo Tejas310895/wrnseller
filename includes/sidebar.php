@@ -21,6 +21,12 @@
               <p>Reports</p>
             </a>
           </li>
+          <li class="<?php if(isset($_GET['payments'])){echo "active";} ?>">
+            <a href="index.php?payments">
+              <i class="now-ui-icons business_money-coins"></i>
+              <p>Payments</p>
+            </a>
+          </li>
           <li class="">
             <a href="logout.php" onclick="return confirm('Are you sure?')">
               <i class="now-ui-icons media-1_button-power"></i>
